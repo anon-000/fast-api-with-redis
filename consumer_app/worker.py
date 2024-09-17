@@ -52,6 +52,7 @@ def processMessage(db, msg_json: str):
 
 
 def main():
+    print("Started Listening...")
     db = redis_db()
     while True:
         message = redis_queue_pop(db)

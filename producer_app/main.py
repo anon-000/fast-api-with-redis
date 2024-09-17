@@ -14,7 +14,7 @@ from time import sleep
 load_dotenv()
 
 # fast api init
-app = FastAPI(debug=True)
+app = FastAPI()
 
 
 database = os.getenv("REDIS_DB_NO")
@@ -41,6 +41,7 @@ def redis_queue_push(db, message):
 def start_sending_messages_to_queue(message_count: int, delay: float = 0.1):
     try:
         db = redis_db()
+        print("\n---------------------------------\n")
         for i in range(message_count):
             msg = {
                 "id": str(uuid4()),
@@ -52,9 +53,11 @@ def start_sending_messages_to_queue(message_count: int, delay: float = 0.1):
                 }
             }
             msg_json = dumps(msg)
-            print(f"Sending msg : index -> {i+1}, id-> [ {msg.get('id')} ]")
+            print(f"\nSending msg : index -> {i+1}, id-> [ {msg.get('id')} ]")
             redis_queue_push(db, msg_json)
-            sleep(delay)
+            if message_count < 100:
+                sleep(delay)
+        print("\n\n---------------------------------\n")
     except Exception as e:
         print("Error", e)
         raise HTTPException(status_code=400, detail=f"{e}")
