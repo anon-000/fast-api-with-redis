@@ -1,6 +1,6 @@
-## { RAG app based on pdf base x Gemini }
+# { Trying the Redis Queue with FAST API }
 -------------------
-# How to run/test it ?
+## How to run/test it ?
 ```
 
 * git clone
@@ -40,7 +40,7 @@ curl --location 'localhost:8000/start-message-queue' \
 -------------------
 
 
-# 1. Setting up Producers and Consumers
+### 1. Setting up Producers and Consumers
 -------------------
 
 
@@ -54,15 +54,26 @@ https://github.com/user-attachments/assets/dd606d8d-cee8-452f-8c3c-c547ea1310d1
 
 
 
-# 2. Sending & Recieving 30 messages (with some fraction of delay)
+### 2. Sending & Recieving 10 messages (with some fraction of delay 0.1)
 -------------------
 
 
 
 
+https://github.com/user-attachments/assets/95379c15-0e63-4d91-9952-3db3447d255f
 
-# 3. Sending & Recieving 3000 & 30,000 messages (with no delay : You can see the speed) 
+
+
+
+
+
+### 3. Sending & Recieving 3000 & 30,000 messages (with no delay : You can see the speed) 
 -------------------
+
+
+
+https://github.com/user-attachments/assets/c5d9ab32-3371-463c-a131-769dcdd27d91
+
 
 
 
