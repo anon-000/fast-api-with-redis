@@ -18,7 +18,8 @@ app = FastAPI(debug=True)
 
 
 database = os.getenv("REDIS_DB_NO")
-secret_key = os.getenv("REDIS_PASSWORD") #required if you have setup password for redis, I don't have configured password so don't neeed it
+# required if you have setup password for redis, I don't have configured password so don't neeed it
+secret_key = os.getenv("REDIS_PASSWORD")
 queue_name = os.getenv("REDIS_QUEUE_NAME")
 
 
@@ -44,7 +45,7 @@ def start_sending_messages_to_queue(message_count: int, delay: float = 0.1):
             msg = {
                 "id": str(uuid4()),
                 "time_stamp":  datetime.utcnow().isoformat(),
-                "messageIndex": i,
+                "messageIndex": i+1,
                 "data": {
                     "x": random.randrange(0, 100),
                     "y": random.randrange(0, 100),
